@@ -3,7 +3,7 @@ package dio.gft.clientes.service;
 import dio.gft.clientes.model.Cliente;
 
 /**
- * Interface de padrão do serviço.
+ * Interface de padrão do serviço Cliente.
  *
  * Define os métodos que devem existir nas classes
  * que a implementarem.
