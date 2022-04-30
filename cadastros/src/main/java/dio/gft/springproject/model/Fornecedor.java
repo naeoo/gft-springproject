@@ -1,20 +1,21 @@
-package dio.gft.clientes.model;
+package dio.gft.springproject.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Optional;
 
 @Entity
-public class Cliente{
+public class Fornecedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private String cpf;
+    private String cppj;
     private String email;
+    private String telefone;
+    private String endereco;
 
     public Long getId() {
         return id;
@@ -32,12 +33,12 @@ public class Cliente{
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCppj() {
+        return cppj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCppj(String cppj) {
+        this.cppj = cppj;
     }
 
     public String getEmail() {
@@ -46,5 +47,21 @@ public class Cliente{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }

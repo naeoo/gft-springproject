@@ -1,4 +1,4 @@
-package dio.gft.clientes.model;
+package dio.gft.springproject.model;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

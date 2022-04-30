@@ -1,7 +1,7 @@
-package dio.gft.clientes.controller;
+package dio.gft.springproject.controller;
 
-import dio.gft.clientes.model.Cliente;
-import dio.gft.clientes.service.ClienteService;
+import dio.gft.springproject.model.Cliente;
+import dio.gft.springproject.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

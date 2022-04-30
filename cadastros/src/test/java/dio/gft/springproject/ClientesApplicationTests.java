@@ -1,4 +1,4 @@
-package dio.gft.clientes;
+package dio.gft.springproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

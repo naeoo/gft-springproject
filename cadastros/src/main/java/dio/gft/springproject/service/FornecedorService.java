@@ -1,7 +1,6 @@
-package dio.gft.clientes.service;
+package dio.gft.springproject.service;
 
-import dio.gft.clientes.model.Cliente;
-import dio.gft.clientes.model.Fornecedor;
+import dio.gft.springproject.model.Fornecedor;
 
 /**
  * Interface de padrão do serviço Fornecedor.

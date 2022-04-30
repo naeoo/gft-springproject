@@ -1,4 +1,4 @@
-package dio.gft.clientes;
+package dio.gft.springproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
