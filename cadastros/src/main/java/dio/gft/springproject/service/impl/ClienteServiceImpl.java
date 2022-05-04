@@ -2,7 +2,10 @@ package dio.gft.springproject.service.impl;
 
 import dio.gft.springproject.model.Cliente;
 import dio.gft.springproject.model.ClienteRepository;
+import dio.gft.springproject.model.Endereco;
+import dio.gft.springproject.model.EnderecoRepository;
 import dio.gft.springproject.service.ClienteService;
+import dio.gft.springproject.service.ViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,12 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Autowired
     private ClienteRepository clienteRepository;
+
+    @Autowired
+    private EnderecoRepository enderecoRepository;
+
+    @Autowired
+    private ViaCepService viaCepService;
 
     @Override
     public Iterable<Cliente> buscarTodos() {
@@ -27,19 +36,30 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void inserir(Cliente cliente) {
-    clienteRepository.save(cliente);
+        salvarClienteComCep(cliente);
     }
 
     @Override
     public void atualizar(Long id, Cliente cliente) {
     Optional<Cliente> clienteBd = clienteRepository.findById(id);
     if (clienteBd.isPresent()) {
-        clienteRepository.save(cliente);
+        salvarClienteComCep(cliente);
     }
     }
 
     @Override
     public void deletar(Long id) {
     clienteRepository.deleteById(id);
+    }
+
+    private void salvarClienteComCep(Cliente cliente) {
+        String cep = cliente.getEndereco().getCep();
+        Endereco endereco = enderecoRepository.findById(cep).orElseGet(() -> {
+            Endereco novoEndereco = viaCepService.consultarCep(cep);
+            enderecoRepository.save(novoEndereco);
+            return novoEndereco;
+        });
+        cliente.setEndereco(endereco);
+        clienteRepository.save(cliente);
     }
 }

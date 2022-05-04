@@ -1,9 +1,6 @@
 package dio.gft.springproject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Fornecedor {
@@ -15,7 +12,8 @@ public class Fornecedor {
     private String cppj;
     private String email;
     private String telefone;
-    private String endereco;
+    @ManyToOne
+    private Endereco endereco;
 
     public Long getId() {
         return id;
@@ -57,11 +55,11 @@ public class Fornecedor {
         this.telefone = telefone;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 }
